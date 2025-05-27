@@ -242,6 +242,386 @@
 </section>
 <!-- End Visualization -->
 
+<style>
+  /* Table specific styles - Ensure these don't conflict with your main CSS */
+  #EvaluationResults table {
+    width: 100%; /* Table fills its container */
+    border-collapse: collapse;
+    font-family: sans-serif;
+    border: 1px solid #ddd;
+    margin-bottom: 20px; /* Add some space below the table */
+  }
+  #EvaluationResults caption {
+    font-weight: bold;
+    margin-bottom: 15px; /* Increased space */
+    text-align: left;
+    font-size: 1.1em; /* Slightly larger caption */
+  }
+  #EvaluationResults th, 
+  #EvaluationResults td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle; /* Ensure vertical alignment */
+  }
+  #EvaluationResults th {
+    background-color: #f2f2f2;
+  }
+  #EvaluationResults td:first-child, 
+  #EvaluationResults th:first-child {
+      text-align: left;
+  }
+  #EvaluationResults .highest {
+    background-color: #F08080; /* LightCoral */
+    color: black;
+  }
+  #EvaluationResults .second-highest {
+    text-decoration: underline;
+  }
+  #EvaluationResults .section-header {
+    background-color: #f9f9f9;
+    color: gray;
+    font-family: monospace;
+    text-align: center;
+    font-weight: bold; /* Make section headers bold */
+  }
+  #EvaluationResults code {
+      font-family: monospace;
+      background-color: #eee; /* Style code slightly */
+      padding: 2px 4px;
+      border-radius: 3px;
+  }
+  /* Optional: Ensure h2 has some space below it if 'content' class doesn't handle it */
+  #EvaluationResults .title {
+      margin-bottom: 1.5rem;
+  }
+</style>
+
+<section class="section" id="EvaluationResults">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">Leaderboard</h2>
+    
+    <table>
+      <caption>
+        <b>Evaluation results on MME-VideoOCR.</b>
+        <code>TR</code> denotes Text Recognition,
+        <code>VTQA</code> Visual Text QA,
+        <code>TG</code> Text Grounding,
+        <code>AR</code> Attribute Recognition,
+        <code>CDT</code> Change Detection & Tracking,
+        <code>STP</code> Special Text Parsing,
+        <code>CFTU</code> Cross-Frame Text Understanding,
+        <code>TBR</code> Text-Based Reasoning,
+        <code>TBVU</code> Text-Based Video Understanding, and
+        <code>RVT</code> Robust Video Testing.
+        The highest accuracy of each task is in <span style="background-color:#F08080; padding: 2px;">red</span>,
+        and the second highest is <u>underlined</u>.
+      </caption>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Size</th>
+          <th>TR</th>
+          <th>VTQA</th>
+          <th>TG</th>
+          <th>AR</th>
+          <th>CDT</th>
+          <th>STP</th>
+          <th>CFTU</th>
+          <th>TBR</th>
+          <th>TBVU</th>
+          <th>RVT</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th colspan="13" class="section-header">Closed-source MLLMs</th>
+        </tr>
+        <tr>
+          <td>Gemini-1.5 Pro</td>
+          <td>-</td>
+          <td>76.7%</td>
+          <td>77.6%</td>
+          <td>61.5%</td>
+          <td>64.7%</td>
+          <td>55.0%</td>
+          <td>74.0%</td>
+          <td class="second-highest">31.3%</td>
+          <td>68.7%</td>
+          <td>53.5%</td>
+          <td>68.0%</td>
+          <td>64.9%</td>
+        </tr>
+        <tr>
+          <td>GPT-4o</td>
+          <td>-</td>
+          <td class="highest">83.3%</td>
+          <td class="second-highest">81.6%</td>
+          <td>60.5%</td>
+          <td class="second-highest">74.7%</td>
+          <td>51.5%</td>
+          <td>68.0%</td>
+          <td>30.7%</td>
+          <td>60.7%</td>
+          <td>59.0%</td>
+          <td>75.3%</td>
+          <td>66.4%</td>
+        </tr>
+        <tr>
+          <td>Gemini-2.5 Pro</td>
+          <td>-</td>
+          <td class="second-highest">83.0%</td>
+          <td class="highest">91.6%</td>
+          <td>64.5%</td>
+          <td>74.0%</td>
+          <td class="highest">70.0%</td>
+          <td class="highest">84.4%</td>
+          <td class="highest">48.7%</td>
+          <td>74.0%</td>
+          <td>56.5%</td>
+          <td>72.0%</td>
+          <td class="highest">73.7%</td>
+        </tr>
+        <tr>
+          <th colspan="13" class="section-header">Small-scale MLLMs</th>
+        </tr>
+        <tr>
+          <td>LLaVA-OneVision</td>
+          <td>7B</td>
+          <td>42.0%</td>
+          <td>50.0%</td>
+          <td>49.0%</td>
+          <td>54.0%</td>
+          <td>41.0%</td>
+          <td>46.4%</td>
+          <td>20.0%</td>
+          <td>45.3%</td>
+          <td>52.0%</td>
+          <td>60.0%</td>
+          <td>46.0%</td>
+        </tr>
+        <tr>
+          <td>VideoChat-Flash</td>
+          <td>7B</td>
+          <td>36.7%</td>
+          <td>48.0%</td>
+          <td>60.0%</td>
+          <td>60.0%</td>
+          <td>49.0%</td>
+          <td>46.0%</td>
+          <td>19.3%</td>
+          <td>50.0%</td>
+          <td>54.0%</td>
+          <td>60.7%</td>
+          <td>47.8%</td>
+        </tr>
+        <tr>
+          <td>Slow-fast MLLM</td>
+          <td>7B</td>
+          <td>46.0%</td>
+          <td>54.8%</td>
+          <td>52.0%</td>
+          <td>60.0%</td>
+          <td>47.0%</td>
+          <td>48.0%</td>
+          <td>20.0%</td>
+          <td>43.3%</td>
+          <td>48.5%</td>
+          <td>54.0%</td>
+          <td>47.8%</td>
+        </tr>
+        <tr>
+          <td>VITA-1.5</td>
+          <td>7B</td>
+          <td>49.0%</td>
+          <td>58.4%</td>
+          <td>43.0%</td>
+          <td>61.3%</td>
+          <td>49.0%</td>
+          <td>53.2%</td>
+          <td>20.0%</td>
+          <td>51.3%</td>
+          <td>47.0%</td>
+          <td>58.7%</td>
+          <td>49.5%</td>
+        </tr>
+        <tr>
+          <td>Oryx-1.5</td>
+          <td>7B</td>
+          <td>51.7%</td>
+          <td>54.0%</td>
+          <td>50.5%</td>
+          <td>54.7%</td>
+          <td>44.5%</td>
+          <td>52.8%</td>
+          <td>23.3%</td>
+          <td>48.7%</td>
+          <td>47.0%</td>
+          <td>64.0%</td>
+          <td>49.6%</td>
+        </tr>
+        <tr>
+          <td>LLaVA-Video</td>
+          <td>7B</td>
+          <td>47.0%</td>
+          <td>59.2%</td>
+          <td>61.0%</td>
+          <td>68.7%</td>
+          <td>48.5%</td>
+          <td>50.0%</td>
+          <td>21.3%</td>
+          <td>47.3%</td>
+          <td>56.5%</td>
+          <td>68.7%</td>
+          <td>52.8%</td>
+        </tr>
+        <tr>
+          <td>VideoLLaMA 3</td>
+          <td>7B</td>
+          <td>47.3%</td>
+          <td>57.6%</td>
+          <td class="highest">68.0%</td>
+          <td>64.7%</td>
+          <td>50.0%</td>
+          <td>54.0%</td>
+          <td>21.3%</td>
+          <td>48.7%</td>
+          <td>55.0%</td>
+          <td>67.3%</td>
+          <td>53.5%</td>
+        </tr>
+        <tr>
+          <td>Qwen2.5-VL</td>
+          <td>7B</td>
+          <td>70.3%</td>
+          <td>70.0%</td>
+          <td>58.0%</td>
+          <td>68.7%</td>
+          <td>48.5%</td>
+          <td>66.4%</td>
+          <td>17.3%</td>
+          <td>49.3%</td>
+          <td>53.0%</td>
+          <td>71.3%</td>
+          <td>59.1%</td>
+        </tr>
+        <tr>
+          <td>InternVL3</td>
+          <td>8B</td>
+          <td>61.3%</td>
+          <td>72.0%</td>
+          <td>60.0%</td>
+          <td>69.3%</td>
+          <td>56.5%</td>
+          <td>62.4%</td>
+          <td>23.3%</td>
+          <td>57.3%</td>
+          <td>55.0%</td>
+          <td>71.3%</td>
+          <td>59.8%</td>
+        </tr>
+         <tr>
+          <th colspan="13" class="section-header">Middle-scale MLLMs</th>
+        </tr>
+        <tr>
+          <td>Oryx-1.5</td>
+          <td>32B</td>
+          <td>50.3%</td>
+          <td>60.0%</td>
+          <td>63.5%</td>
+          <td>62.7%</td>
+          <td>46.0%</td>
+          <td>60.4%</td>
+          <td>21.3%</td>
+          <td>54.7%</td>
+          <td class="second-highest">61.0%</td>
+          <td>68.0%</td>
+          <td>55.2%</td>
+        </tr>
+        <tr>
+          <td>Kimi-VL</td>
+          <td>16B</td>
+          <td>54.7%</td>
+          <td>66.4%</td>
+          <td>59.0%</td>
+          <td>62.7%</td>
+          <td>48.0%</td>
+          <td>57.6%</td>
+          <td>23.3%</td>
+          <td>56.7%</td>
+          <td>57.5%</td>
+          <td>71.3%</td>
+          <td>56.2%</td>
+        </tr>
+        <tr>
+          <td>Qwen2.5-VL</td>
+          <td>32B</td>
+          <td>58.3%</td>
+          <td>77.2%</td>
+          <td>62.5%</td>
+          <td>68.7%</td>
+          <td>52.0%</td>
+          <td>70.4%</td>
+          <td>22.7%</td>
+          <td>68.7%</td>
+          <td>54.5%</td>
+          <td>65.3%</td>
+          <td>61.0%</td>
+        </tr>
+        <tr>
+          <td>InternVL3</td>
+          <td>38B</td>
+          <td>67.0%</td>
+          <td>76.8%</td>
+          <td>65.0%</td>
+          <td class="highest">76.0%</td>
+          <td>61.0%</td>
+          <td>69.6%</td>
+          <td>24.7%</td>
+          <td class="second-highest">76.0%</td>
+          <td class="highest">61.5%</td>
+          <td class="second-highest">76.7%</td>
+          <td>66.1%</td>
+        </tr>
+         <tr>
+          <th colspan="13" class="section-header">Large-scale MLLMs</th>
+        </tr>
+        <tr>
+          <td>InternVL3</td>
+          <td>78B</td>
+          <td>70.0%</td>
+          <td>77.6%</td>
+          <td class="second-highest">67.5%</td>
+          <td class="highest">76.0%</td>
+          <td class="second-highest">65.5%</td>
+          <td>71.6%</td>
+          <td>24.7%</td>
+          <td class="highest">77.3%</td>
+          <td>57.0%</td>
+          <td>75.3%</td>
+          <td>67.2%</td>
+        </tr>
+        <tr>
+          <td>Qwen2.5-VL</td>
+          <td>72B</td>
+          <td>80.7%</td>
+          <td>80.0%</td>
+          <td>65.0%</td>
+          <td>74.0%</td>
+          <td>56.5%</td>
+          <td class="second-highest">79.6%</td>
+          <td>26.7%</td>
+          <td>74.7%</td>
+          <td>57.0%</td>
+          <td class="highest">78.7%</td>
+          <td class="second-highest">69.0%</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</section>
+
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
