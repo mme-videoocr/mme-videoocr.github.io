@@ -193,7 +193,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Multimodal Large Language Models (MLLMs) have achieved considerable accuracy in Optical Character Recognition (OCR) from static images. However, their efficacy in video OCR is significantly diminished due to factors such as motion blur, temporal variations, and visual effects inherent in video content. To provide clearer guidance for training practical MLLMs, we introduce the MME-VideoOCR benchmark, which encompasses a comprehensive range of video OCR application scenarios. MME-VideoOCR features 10 task categories comprising 25 individual tasks and spans 44 diverse scenarios. These tasks extend beyond text recognition to incorporate deeper comprehension and reasoning of textual content within videos. The benchmark consists of 1,464 videos with varying resolutions, aspect ratios, and durations, along with 2,000 meticulously curated, manually annotated question-answer pairs. We evaluate 18 state-of-the-art MLLMs on MME-VideoOCR, revealing that even the best-performing model (Gemini-2.5 Pro) achieves an accuracy of only 73.7%. Fine-grained analysis indicates that while existing MLLMs demonstrate strong performance on tasks where relevant texts are contained within a single or few frames, they exhibit limited capability in effectively handling tasks that demand holistic video comprehension. These limitations are especially evident in scenarios that require spatio-temporal reasoning, cross-frame information integration, or resistance to language prior bias. Our findings also highlight the importance of high-resolution visual input and sufficient temporal coverage for reliable OCR in dynamic video scenarios.
           </p>
         </div>
       </div>
@@ -202,7 +202,45 @@
 </section>
 <!-- End paper abstract -->
 
+<!-- Paper Teaser -->
+<section class="section is-small-padding">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="section is-80-percent">
+        <h2 class="title is-3">Teaser</h2>
 
+        <figure class="is-tight-figure">
+            <img src="static/images/teaser.png" alt="Teaser Image" style="max-width: 100%; height: auto;">
+        </figure>
+        <p class="tight-text" style="text-align: left;">
+                <p><strong>An example in MME-VideoOCR.</strong> The task requires the MLLM to first recognize the textual information distributed across multiple video frames, and then to perform semantic understanding and reasoning over the extracted text to accurately determine the correct answer. The correct information is marked in <span style="color: #0070C0;">blue</span>, while misleading information is marked in <span style="color: #C00000;">red</span>.</p>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper teaser -->
+
+<!-- Visualization -->
+<section class="section is-small-padding">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="section is-80-percent">
+        <h2 class="title is-3">Visualization</h2>
+
+        <figure class="is-tight-figure">
+          <img src="static/images/visualization.png" alt="Teaser Image" style="max-width: 100%; height: auto;">
+        </figure>
+
+        <!-- 修改后的文字部分 -->
+        <p style="text-align: left; white-space: normal; max-width: 95%; margin: 0 auto;">
+          <strong>Example videos and their annotated questions from the MME-VideoOCR benchmark</strong>, encompassing 25 tasks across 10 categories. Each task is designed to evaluate models' capabilities in various aspects such as text recognition, localization, reasoning, and comprehensive video understanding. The figure displays representative video samples and their corresponding questions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Visualization -->
 
 
 <!--BibTex citation -->
