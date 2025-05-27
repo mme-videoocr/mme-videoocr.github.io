@@ -643,6 +643,71 @@
 </section>
 <!-- End Visualization -->
 
+<!-- Visualization -->
+<section class="section is-small-padding">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="section is-80-percent">
+        <h2 class="title is-3">Construction Process</h2>
+
+        <figure class="is-tight-figure">
+          <img src="static/images/construction.png" alt="Teaser Image" style="max-width: 100%; height: auto;">
+        </figure>
+
+        <!-- 修改后的文字部分 -->
+        <p style="text-align: left; white-space: normal; max-width: 95%; margin: 0 auto;">
+          <strong>Overview of the MME-VideoOCR construction process</strong>. Video filtering ensures sufficient visual dynamics and meaningful textual content. Manual annotation provides high-quality QA pairs, and expert verification further enhances sample reliability and mitigates potential biases.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Visualization -->
+
+<!-- Analysis Section -->
+<section class="section is-small-padding">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-10-desktop">
+        <h2 class="title is-3 has-text-centered">Analysis</h2>
+        <div style="border: 1px solid #ddd; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); background-color: #fafafa;">
+
+          <p>
+            <strong>Model Performance and Benchmark Discriminative Power.</strong>
+            We evaluate 18 state-of-the-art MLLMs, including both open-source models (7B–78B) and closed-source models such as GPT-4o and Gemini-2.5 Pro. The results highlight the strong discriminative capability of the MME-VideoOCR benchmark. The accuracy gap between the best-performing model (Gemini-2.5 Pro, 73.7%) and the lowest (LLaVA-OneVision 7B, 46.0%) underscores substantial performance variation across models. In terms of task difficulty, performance on tasks such as Cross-Frame Text Understanding and Text-Based Video Understanding remains generally low, with most models scoring below 60%, reflecting the challenges of temporal integration and semantic reasoning in video OCR.
+          </p>
+
+          <p>
+            <strong>Impact of Resolution and Frame Count.</strong>
+            Our experiments demonstrate that both higher input resolution and a greater number of frames significantly improve model performance on video OCR tasks. Increasing the resolution of each frame consistently enhances accuracy across all tested models. Similarly, extending the number of input frames generally benefits performance. However, models such as Qwen2.5-VL and InternVL3 show a slight performance drop when the frame count increases from 32 to 64, suggesting that excessively long contexts may hinder attention allocation and degrade performance.
+          </p>
+
+          <p>
+            <strong>Textual Information Utilization.</strong>
+            In tasks like Subtitle-Based Video Understanding, where relevant information is concentrated in a small number of frames, most models perform well. This indicates that current MLLMs are capable of leveraging embedded textual cues for effective semantic comprehension when the temporal scope is limited.
+          </p>
+
+          <p>
+            <strong>Limitations in Temporal Integration.</strong>
+            Models exhibit significant limitations in tasks that require cross-frame reasoning. Most achieve only around 20% accuracy on Cross-Frame Text Understanding, while all models fail entirely on Trajectory Recognition, with an accuracy of 0%. Additionally, the majority score below 35% on Scrambled Recognition. These results indicate a consistent weakness in integrating temporally dispersed information, as current models tend to rely on localized context rather than constructing a comprehensive temporal understanding.
+          </p>
+
+          <p>
+            <strong>Language Prior Bias.</strong>
+            MLLMs exhibit a strong tendency to prioritize language priors over visual fidelity. They often normalize misspelled yet visually clear text into contextually likely words, leading to systematic errors. This behavior indicates a reliance on linguistic plausibility rather than accurate visual transcription, undermining performance in OCR tasks where character-level precision is critical.
+          </p>
+
+          <p>
+            <strong>Key Takeaways for Model Optimization.</strong>
+            Overall, the results suggest that robust video OCR requires not only high-resolution visual input and extended temporal context, but also architectural improvements for long-range integration and a better balance between visual evidence and linguistic priors. These remain critical directions for the next generation of MLLMs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Analysis Section -->
+
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
