@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta name="description" content="MME-VideoOCR">
+  <meta property="og:title" content="MME-VideoOCR"/>
+  <meta property="og:description" content="MME-VideoOCR: Evaluating OCR-Based Capabilities of Multimodal LLMs in Video Scenarios"/>
+  <meta property="og:url" content="https://mme-videoocr.github.io/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <!-- <meta property="og:image" content="static/image/your_banner_image.png" /> -->
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
@@ -46,8 +46,37 @@
 </head>
 <body>
 
+<style>
+  .tight-figure {
+    margin-bottom: 0; /* 去除图像下方空隙 */
+    margin-top: 0; /* 去除图像上方空隙 */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
 
-  <section class="hero">
+  .tight-text {
+    margin-top: 0.5rem; /* 缩小图像和段落之间的空隙 */
+  }
+
+  .is-80-percent {
+    width: 110%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .is-small-padding {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+</style>
+
+
+  <section class="section is-small-padding">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
@@ -55,62 +84,78 @@
             <h1 class="title is-1 publication-title">MME-VideoOCR: Evaluating OCR-Based Capabilities of Multimodal LLMs in Video Scenarios</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
-              <span class="author-block"><a href="#" target="_blank">Yang Shi</a><sup>*</sup>,</span>
-              <span class="author-block"><a href="#" target="_blank">Huanqian Wang</a><sup>*</sup>,</span>
-              <span class="author-block"><a href="#" target="_blank">Wulin Xie</a><sup>*</sup>,</span>
-              <span class="author-block"><a href="#" target="_blank">Huanyao Zhang</a><sup>*</sup>,</span>
-              <span class="author-block"><a href="#" target="_blank">Lijie Zhao</a><sup>*</sup>,</span>
-              <span class="author-block"><a href="#" target="_blank">Yi-Fan Zhang</a><sup>*</sup><sup>†</sup>,</span>
-              <span class="author-block"><a href="#" target="_blank">Xinfeng Li</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Chaoyou Fu</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Zhuoer Wen</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Wenting Liu</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Zhuoran Zhang</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Xinlong Chen</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Bohan Zeng</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Sihan Yang</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Yushuo Guan</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Zhang Zhang</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Liang Wang</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Haoxuan Li</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Zhouchen Lin</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Yuanxing Zhang</a><sup>‡</sup>,</span>
-              <span class="author-block"><a href="#" target="_blank">Pengfei Wan</a>,</span>
-              <span class="author-block"><a href="#" target="_blank">Haotian Wang</a><sup>†</sup>,</span>
-              <span class="author-block"><a href="#" target="_blank">Wenjing Yang</a><sup>†</sup>,</span>
+                <style>
+                  .author-block sup {
+                    font-weight: bold;
+                  }
+                    .color-1 { color: #1f77b4; } /* Peking University */
+                    .color-2 { color: #ff7f0e; } /* Tsinghua University */
+                    .color-3 { color: #2ca02c; } /* CASIA */
+                    .color-4 { color: #7f7f7f; } /* CUHKSZ */
+                    .color-5 { color: #9467bd; } /* NTU */
+                    .color-6 { color: #8c564b; } /* Nanjing University */
+                    .color-7 { color: #e377c2; } /* XJTU */
+                    .color-8 { color: #d62728; } /* Kuaishou Technology */
+                  </style>
 
-              <div class="is-size-5 publication-authors">
-                <span class="author-block">Peking University, Tsinghua University, CASIA, CUHKSZ, NTU, Nanjing University, XJTU, Kuaishou Technology<br>Conference Name and Year</span>
-                <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution <sup>†</sup>Corresponding Author <sup>‡</sup>Project Lead</small></span>
+                  <span class="author-block">Yang Shi<sup class="color-1">1</sup><sup>,</sup><sup class="color-8">8</sup><sup>*</sup>,</span>
+                  <span class="author-block">Huanqian Wang<sup class="color-2">2</sup><sup>*</sup>,</span>
+                  <span class="author-block">Wulin Xie<sup class="color-3">3</sup><sup>*</sup>,</span>
+                  <span class="author-block">Huanyao Zhang<sup class="color-1">1</sup><sup>*</sup>,</span>
+                  <span class="author-block">Lijie Zhao<sup class="color-4">4</sup><sup>*</sup>,</span>
+                  <span class="author-block">Yi-Fan Zhang<sup class="color-3">3</sup><sup>*</sup><sup>†</sup>,</span><br>
+                  <span class="author-block">Xinfeng Li<sup class="color-5">5</sup>,</span>
+                  <span class="author-block">Chaoyou Fu<sup class="color-6">6</sup>,</span>
+                  <span class="author-block">Zhuoer Wen<sup class="color-1">1</sup>,</span>
+                  <span class="author-block">Wenting Liu<sup class="color-1">1</sup>,</span>
+                  <span class="author-block">Zhuoran Zhang<sup class="color-1">1</sup>,</span>
+                  <span class="author-block">Xinlong Chen<sup class="color-3">3</sup>,</span>
+                  <span class="author-block">Bohan Zeng<sup class="color-1">1</sup>,</span><br>
+                  <span class="author-block">Sihan Yang<sup class="color-7">7</sup>,</span>
+                  <span class="author-block">Yushuo Guan<sup class="color-8">8</sup>,</span>
+                  <span class="author-block">Zhang Zhang<sup class="color-3">3</sup>,</span>
+                  <span class="author-block">Liang Wang<sup class="color-3">3</sup>,</span>
+                  <span class="author-block">Haoxuan Li<sup class="color-1">1</sup>,</span>
+                  <span class="author-block">Zhouchen Lin<sup class="color-1">1</sup>,</span><br>
+                  <span class="author-block">Yuanxing Zhang<sup class="color-8">8</sup><sup>‡</sup>,</span>
+                  <span class="author-block">Pengfei Wan<sup class="color-8">8</sup>,</span>
+                  <span class="author-block">Haotian Wang<sup class="color-2">2</sup><sup>†</sup>,</span>
+                  <span class="author-block">Wenjing Yang<sup class="color-2">2</sup><sup>†</sup></span><br>
+
+                <div class="is-size-5 publication-authors"></div>
+                <div class="is-size-5 publication-authors">
+                  <span class="author-block">
+                  <sup class="color-1">1</sup>Peking University, 
+                  <sup class="color-2">2</sup>Tsinghua University, 
+                  <sup class="color-3">3</sup>CASIA, 
+                  <sup class="color-4">4</sup>CUHKSZ, 
+                  <sup class="color-5">5</sup>NTU, <br>
+                  <sup class="color-6">6</sup>Nanjing University, 
+                  <sup class="color-7">7</sup>XJTU, 
+                  <sup class="color-8">8</sup>Kuaishou Technology<br>
+                  </span>
+                </div>
+                <span class="eql-cntrb">
+                  <sup>*</sup>Core Contributor <sup>†</sup>Corresponding Author <sup>‡</sup>Project Lead</small>
+                </span>
               </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
                          <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
+                          <i class="ai ai-arxiv"></i>
                         </span>
-                        <span>Paper</span>
+                        <span>arXiv</span>
                       </a>
                     </span>
 
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
                   <!-- Github link -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/DogNeverSleep/MME-VideoOCR" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -119,16 +164,18 @@
                   </a>
                 </span>
 
-                <!-- ArXiv abstract Link -->
+                <!-- Huggingface Dataset -->
+                <!-- Huggingface Dataset -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://huggingface.co/datasets/DogNeverSleep/MME-VideoOCR_Dataset" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                    <i class="ai ai-arxiv"></i>
+                    <i class="fas fa-database"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>Dataset</span>
                 </a>
-              </span>
+                </span>
+
             </div>
           </div>
         </div>
@@ -137,23 +184,6 @@
   </div>
 </section>
 
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
